@@ -3,7 +3,7 @@
 #
 # SDL_Mixer_FOUND - system has SDL_Mixer
 # SDL_Mixer_INCLUDE_DIRS - the SDL_Mixer include directory
-# TinyXML2_LIBRARIES - the libraries needed to use SDL_Mixer
+# SDL_Mixer_LIBRARIES - the libraries needed to use SDL_Mixer
 #
 # $SDL_Mixer_HOME is an environment variable used for finding SDL_Mixer.
 #

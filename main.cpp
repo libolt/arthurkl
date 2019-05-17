@@ -1,5 +1,6 @@
 #include <iostream>
 #include "SDL.h"
+#include "SDL_image.h"
 
 using namespace std;
 
@@ -49,7 +50,9 @@ bool loadMedia()
     //Loading success flag
     bool success = true;
     //Load splash image
-    gHelloWorld = SDL_LoadPNG( "King-Arthur-Logo.png" );
+    SDL_RWops *rwop;
+    rwop=SDL_RWFromFile("King-Arthur-Logo.png", "rb");
+    gHelloWorld = IMG_LoadPNG_RW( rwop );
     if( gHelloWorld == NULL )
     {
         printf( "Unable to load image %s! SDL Error: %s\n", "02_getting_an_image_on_the_screen/hello_world.bmp", SDL_GetError() );
