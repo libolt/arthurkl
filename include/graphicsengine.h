@@ -1,0 +1,4 @@
+#ifndef GRAPHICSENGINE_H
+#define GRAPHICSENGINE_H
+
+#endif // GRAPHICSENGINE_H
