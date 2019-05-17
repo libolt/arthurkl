@@ -1,4 +1,10 @@
-#ifndef GRAPHICSENGINE_H
-#define GRAPHICSENGINE_H
+#ifndef _GRAPHICSENGINE_H_
+#define _GRAPHICSENGINE_H_
 
-#endif // GRAPHICSENGINE_H
+class graphisEngine
+{
+public:
+private:
+};
+
+#endif // _GRAPHICSENGINE_H_
