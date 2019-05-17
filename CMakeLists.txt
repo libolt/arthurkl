@@ -1,4 +1,12 @@
 cmake_minimum_required(VERSION 2.8)
 
 project(arthurkl)
+SET(CMAKE_MODULE_PATH "${arthurkl_SOURCE_DIR}/cmake")
+find_package (SDL2)
+find_package (SDL_Mixer)
+message(SDL2_INClUDE DIR = ${SDL2_INCLUDE_DIR})
+INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIR})
+LINK_DIRECTORIES()
+message (SDL2_LIBRARY = ${SDL2_LIBRARY})
 add_executable(${PROJECT_NAME} "main.cpp")
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL_Mixer_Libraries})
