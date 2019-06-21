@@ -1,11 +1,14 @@
 #include <iostream>
-#include "graphicsengine.h"
+#include "engine/graphicsengine.h"
+#include "engine/inputengine.h"
 
 using namespace std;
 
 int main( int argc, char* args[] )
 {
     sharedPtr<graphicsEngine> gEngine(new graphicsEngine);
+    sharedPtr<inputEngine> iEngine(new inputEngine);
+
     //Start up SDL and create window
     if( !gEngine->initialize() )
     {
