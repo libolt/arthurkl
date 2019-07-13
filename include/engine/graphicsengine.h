@@ -14,7 +14,10 @@ public:
 
     bool initialize();  // initializes the graphics engine
     //Loads media
-    bool loadMedia();
+    bool loadMedia(std::string path);
+    //Loads individual image as texture
+    SDL_Texture* loadTexture( std::string path );
+
 
     bool updateWindow();  // updates the contents of the window
     //Frees media and shuts down SDL
@@ -26,6 +29,13 @@ private:
     SDL_Surface* sdlScreenSurface = nullptr;
     //The image we will load and show on the screen
     SDL_Surface* sdlHelloWorld = nullptr;
+    //The final optimized image
+    SDL_Surface* optimizedSurface = nullptr;
+    //The window renderer
+    SDL_Renderer* sdlRenderer = nullptr;
+
+    //Current displayed texture
+    SDL_Texture* sdlTexture = nullptr;
 
 };
 

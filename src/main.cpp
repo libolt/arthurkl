@@ -17,7 +17,7 @@ int main( int argc, char* args[] )
     else
     {
         //Load media
-        if( !gEngine->loadMedia() )
+        if( !gEngine->loadMedia("King-Arthur-Logo.png") )
         {
             printf( "Failed to load media!\n" );
         }
