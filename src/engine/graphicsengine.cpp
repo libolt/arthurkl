@@ -34,7 +34,7 @@ bool graphicsEngine::initialize()  // initializes the graphics engine
         {
             //Create renderer for window
             sdlRenderer = SDL_CreateRenderer( sdlWindow, -1, SDL_RENDERER_ACCELERATED );
-            if( sdlRenderer == NULL )
+            if( sdlRenderer == nullptr )
             {
                 printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );
                 success = false;
@@ -97,11 +97,11 @@ bool graphicsEngine::loadMedia(std::string path)
 SDL_Texture* graphicsEngine::loadTexture( std::string path )
 {
     //The final texture
-    SDL_Texture* newTexture = NULL;
+    SDL_Texture* newTexture = nullptr;
 
     //Load image at specified path
     SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
-    if( loadedSurface == NULL )
+    if( loadedSurface == nullptr )
     {
         printf( "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError() );
     }
@@ -109,7 +109,7 @@ SDL_Texture* graphicsEngine::loadTexture( std::string path )
     {
         //Create texture from surface pixels
         newTexture = SDL_CreateTextureFromSurface( sdlRenderer, loadedSurface );
-        if( newTexture == NULL )
+        if( newTexture == nullptr )
         {
             printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
         }
@@ -137,7 +137,7 @@ bool graphicsEngine::updateWindow()  // updates the contents of the windo
     SDL_RenderPresent( sdlRenderer );
 
     //Wait two seconds
-    SDL_Delay( 2000 );
+//    SDL_Delay( 2000 );
 
     return (true);
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include "engine/gameengine.h"
 #include "engine/graphicsengine.h"
 #include "engine/inputengine.h"
 
@@ -6,26 +7,23 @@ using namespace std;
 
 int main( int argc, char* args[] )
 {
-    sharedPtr<graphicsEngine> gEngine(new graphicsEngine);
-    sharedPtr<inputEngine> iEngine(new inputEngine);
+    sharedPtr<gameEngine> gameE(new gameEngine);
 
-    //Start up SDL and create window
-    if( !gEngine->initialize() )
+    //Start up the gameEngine
+    if( !gameE->initialize() )
     {
         printf( "Failed to initialize!\n" );
     }
-    else
+    gameE->getGraphicsE()->updateWindow();
+
+    while (!gameE->getQuitGame())
     {
-        //Load media
-        if( !gEngine->loadMedia("King-Arthur-Logo.png") )
-        {
-            printf( "Failed to load media!\n" );
-        }
-        else
-        {
-            gEngine->updateWindow();
-        }
-    } //Free resources and close SDL
-    gEngine->close();
+        std::cout << "blah" << endl;
+        gameE->loop();
+        gameE->getInputE()->processInput();
+    }
+    //Free resources and close SDL
+    gameE->getGraphicsE()->close();
+
     return 0;
 }
