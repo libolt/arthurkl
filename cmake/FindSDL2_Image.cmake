@@ -42,13 +42,16 @@ FIND_LIBRARY(SDL2_Image_LIBRARIES_DBG
     )
 ELSE (WIN32)
 FIND_LIBRARY(SDL2_Image_LIBRARY
-    NAMES SDL2_Image sdl2_Image libSDL2_Image.a
+    NAMES SDL2_Image sdl2_Image libSDL2_image.so libSDL2_Image.a libSDL2_image
     PATHS
     $ENV{SDL2_Image_HOME}
     /usr/local
     /usr
+    PATH_SUFFIXES lib64 lib
     )
 ENDIF (WIN32)
+message (SDL2_Image_LIBRARIES = ${SDL2_Image_LIBRARIES})
+
 # handle the QUIETLY and REQUIRED arguments and set SDL2_Image_FOUND to TRUE if
 # all listed variables are TRUE
 INCLUDE(FindPackageHandleStandardArgs)
@@ -67,5 +70,6 @@ ELSE (SDL2_Image_FOUND)
     MESSAGE("SDL2_Image Not Found!")
 ENDIF (SDL2_Image_FOUND)
 
+message (SDL2_Image_LIBRARIES = ${SDL2_Image_LIBRARIES})
 MARK_AS_ADVANCED(SDL2_Image_LIBRARY SDL2_Image_LIBRARIES SDL2_Image_INCLUDE_DIRS)
 

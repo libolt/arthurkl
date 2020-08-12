@@ -20,7 +20,7 @@ bool graphicsEngine::initialize()  // initializes the graphics engine
     else
     {
         //Create window
-        sdlWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1920, 1080, SDL_WINDOW_SHOWN );
+        sdlWindow = SDL_CreateWindow( "Arthur: King and Legend", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1920, 1080, SDL_WINDOW_SHOWN );
         if( sdlWindow == nullptr )
         {
             printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
