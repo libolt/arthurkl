@@ -2,6 +2,8 @@
 #include "engine/graphicsengine.h"
 #include "engine/inputengine.h"
 
+#include <string>
+
 gameEngine::gameEngine()  // constructor
 {
     quitGame = false;
@@ -118,15 +120,18 @@ bool gameEngine::loadTitle()  // loads the title screen
 {
     //Load media
     if (!titleLoaded)
-    if( !graphicsE->loadMedia("King-Arthur-Logo.png") )
     {
-        printf( "Failed to load media!\n" );
-    }
-    else
-    {
-        titleLoaded = true;
-    }
+        std::string title = "King-Arthur-Logo.png";
 
+        if( !graphicsE->loadMedia(title.c_str()) )
+        {
+            printf( "Failed to load media!\n" );
+        }
+        else
+        {
+            titleLoaded = true;
+        }
+    }
     return (true);
 }
 

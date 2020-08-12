@@ -1,5 +1,7 @@
 #include "engine/graphicsengine.h"
 
+#include <string>
+
 graphicsEngine::graphicsEngine()  // constructor
 {
 
