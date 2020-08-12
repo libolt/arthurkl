@@ -22,6 +22,7 @@ int main( int argc, char* args[] )
         gameE->loop();
         gameE->getInputE()->processInput();
     }
+
     //Free resources and close SDL
     gameE->getGraphicsE()->close();
 
