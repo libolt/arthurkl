@@ -121,7 +121,7 @@ bool gameEngine::loadTitle()  // loads the title screen
     //Load media
     if (!titleLoaded)
     {
-        std::string title = "King-Arthur-Logo.png";
+        std::string title = "data/images/King-Arthur-Logo.png";
 
         if( !graphicsE->loadMedia(title.c_str()) )
         {
