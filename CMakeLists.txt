@@ -24,6 +24,6 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_Image_LIBRARIES} ${
 
 add_custom_command(
         TARGET arthurkl POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy
-                ${CMAKE_SOURCE_DIR}/data/arthurkl.xml
-                ${CMAKE_CURRENT_BINARY_DIR}/data/arthurkl.xml)
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+                ${CMAKE_SOURCE_DIR}/data
+                ${CMAKE_CURRENT_BINARY_DIR}/data)
