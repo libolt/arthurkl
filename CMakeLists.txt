@@ -20,3 +20,10 @@ FILE(GLOB_RECURSE ARTHURKL_SRCS src/*.cpp)
 
 add_executable(${PROJECT_NAME} ${ARTHURKL_SRCS} ${ARTHURKL_HEADERS})
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_Image_LIBRARIES} ${SDL2_Mixer_LIBRARIES} ${PugiXML_LIBRARIES})
+
+
+add_custom_command(
+        TARGET arthurkl POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+                ${CMAKE_SOURCE_DIR}/data/arthurkl.xml
+                ${CMAKE_CURRENT_BINARY_DIR}/data/arthurkl.xml)
