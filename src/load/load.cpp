@@ -16,4 +16,12 @@
  * =====================================================================================
  */
 #include <stdlib.h>
+#include <iostream>
+#include "load/load.h"
 
+void loadXML::loadDocument()
+{
+    pugi::xml_parse_result result = xmlDoc.load_file("tree.xml");
+
+    std::cout << "Load result: " << result.description() << ", mesh name: " << xmlDoc.child("mesh").attribute("name").value() << std::endl;
+}
