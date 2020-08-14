@@ -3,7 +3,7 @@
 
 #include "SDL.h"
 
-#include "typedefs.h"
+#include "utilities/typedefs.h"
 
 class inputEngine
 {

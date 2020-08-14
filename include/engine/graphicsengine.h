@@ -4,7 +4,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 
-#include "typedefs.h"
+#include "utilities/typedefs.h"
 
 class graphicsEngine
 {

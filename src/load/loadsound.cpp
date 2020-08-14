@@ -1,4 +1,11 @@
 #include <load/loadsound.h>
 
-bool loadMusic(const std::string &file, std::shared_ptr<Mix_Music> music);
-bool loadSFX(const std::string &file, std::shared_ptr<Mix_Chunk> sfx);
+bool loadSound::loadMusic(const std::string &file, sharedPtr<Mix_Music> music)
+{
+    return (true);
+}
+
+bool loadSFX(const std::string &file, sharedPtr<Mix_Chunk> sfx)
+{
+    return (true);
+}

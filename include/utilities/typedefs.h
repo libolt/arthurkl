@@ -1,5 +1,5 @@
-#ifndef _TYPEDEFS_H_
-#define _TYPEDEFS_H_
+#ifndef TYPEDEFS_H
+#define TYPEDEFS_H
 
 #include <memory>
 
@@ -7,4 +7,4 @@
 #define sharedPtr std::shared_ptr
 #endif
 
-#endif // _TYPEDEFS_H_
+#endif // TYPEDEFS_H
