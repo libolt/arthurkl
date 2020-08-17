@@ -8,7 +8,7 @@
 class loadSound
 {
     public:
-    bool loadMusic(const std::string &file, sharedPtr<Mix_Music> music);
+    bool loadMusic(const std::string &file, sharedPtr<Mix_Music*> music);
     bool loadSFX(const std::string &file, sharedPtr<Mix_Chunk> sfx);
     private:
 };
