@@ -8,7 +8,7 @@
 class soundEngine
 {
     public:
-    bool init(void);
+    bool initialize(void);
 
     private:
     sharedPtr<Mix_Music> music;

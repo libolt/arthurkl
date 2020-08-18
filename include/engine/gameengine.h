@@ -7,6 +7,7 @@
 
 class graphicsEngine;
 class inputEngine;
+class soundEngine;
 
 class gameEngine
 {
@@ -20,6 +21,9 @@ public:
     sharedPtr<inputEngine> getInputE() const;  // retrieves the value of inputE
     void setInputE(const sharedPtr<inputEngine> &set);  // sets the value of inputE
 
+    sharedPtr<soundEngine> getSoundE() const;  // retrieves the value of soundE
+    void setSoundE(const sharedPtr<soundEngine> &set);  // sets the value of soundE
+
     bool getQuitGame() const;  // retrieves the value of quitGame
     void setQuitGame(const bool &set);  // sets the value of quitGame
 
@@ -28,6 +32,9 @@ public:
 
     bool getInputEInitialized() const;  // retrieves the value of inputEInitialized
     void setInputEInitialized(const bool &set);  // sets the value of inputEInitialized
+
+    bool getSoundEInitialized() const;  // retrieves the value of soundEInitialized
+    void setSoundEInitialized(const bool &set);  // sets the value of soundEInitialized
 
     bool getTitleLoaded() const;  // retrieves the value of titleLoaded
     void setTitleLoaded(const bool &set);  // sets the value of titleLoaded
@@ -40,14 +47,19 @@ public:
 
 private:
 
+    // Engines
     sharedPtr<graphicsEngine> graphicsE;
     sharedPtr<inputEngine> inputE;
-    //Event handler
+    sharedPtr<soundEngine> soundE;
+
+    // Event handler
     SDL_Event event;
 
     bool quitGame; // stores whether or not to quit the game
     bool graphicsEInitialized;  // stores whether the graphics engien has been initialized
     bool inputEInitialized;  // stores whether the input engine has been initialized
+    bool soundEInitialized;  // stores whether the sound engine has been initialized
+
     bool titleLoaded;  // stores whether title image has been loaded
 
 };

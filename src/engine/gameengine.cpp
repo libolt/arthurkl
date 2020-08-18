@@ -1,14 +1,18 @@
 #include "engine/gameengine.h"
 #include "engine/graphicsengine.h"
 #include "engine/inputengine.h"
+#include "engine/soundengine.h"
+#include "load/loadsound.h"
 
 #include <string>
+#include <iostream>
 
 gameEngine::gameEngine()  // constructor
 {
     quitGame = false;
     graphicsEInitialized = false;
     inputEInitialized = false;
+    soundEInitialized = false;
     titleLoaded = false;
 }
 gameEngine::~gameEngine() = default;;  // destructor
@@ -31,6 +35,15 @@ sharedPtr<inputEngine> gameEngine::getInputE() const  // retrieves the value of 
 void gameEngine::setInputE(const sharedPtr<inputEngine> &set)  // sets the value of inputE
 {
     inputE = set;
+}
+
+sharedPtr<soundEngine> gameEngine::getSoundE() const  // retrieves the value of soundE
+{
+    return (soundE);
+}
+void gameEngine::setSoundE(const sharedPtr<soundEngine> &set)  // sets the value of soundE
+{
+    soundE = set;
 }
 
 bool gameEngine::getQuitGame() const  // retrieves the value of quitGame
@@ -60,6 +73,15 @@ void gameEngine::setInputEInitialized(const bool &set)  // sets the value of inp
     inputEInitialized = set;
 }
 
+bool gameEngine::getSoundEInitialized() const  // retrieves the value of soundEInitialized
+{
+    return (soundEInitialized);
+}
+void gameEngine::setSoundEInitialized(const bool &set)  // sets the value of soundEInitialized
+{
+    soundEInitialized = set;
+}
+
 bool gameEngine::getTitleLoaded() const  // retrieves the value of titleLoaded
 {
     return (titleLoaded);
@@ -77,13 +99,17 @@ bool gameEngine::initialize()  // initializes the game engine
    sharedPtr<inputEngine> tempInputE(new inputEngine);
    inputE = tempInputE;
 
-    //Start up SDL and create window
+   sharedPtr<soundEngine> tempSoundE(new soundEngine);
+   soundE = tempSoundE;
 
+   sharedPtr<loadSound> loadS(new loadSound);
+
+    // Initializes Graphics Engine
     if (!graphicsEInitialized)
     {
         if( !graphicsE->initialize() )
         {
-            printf( "Failed to initialize!\n" );
+            std::cout << "Failed to initialize Graphics Engine!" << std::endl;
         }
         else
         {
@@ -95,11 +121,12 @@ bool gameEngine::initialize()  // initializes the game engine
 
     }
 
+    // Initializes Input Engine
     if (!inputEInitialized)
     {
         if( !inputE->initialize() )
         {
-            printf( "Failed to initialize!\n" );
+            std::cout << "Failed to initialize!\n" << std::endl;
         }
         else
         {
@@ -111,8 +138,26 @@ bool gameEngine::initialize()  // initializes the game engine
 
     }
 
-    loadTitle();
+    // Initializes Sound Engine
+    if (!soundEInitialized)
+    {
+        if( !soundE->initialize() )
+        {
+            std::cout << "Failed to initialize!\n" << std::endl;
+        }
+        else
+        {
+            soundEInitialized = true;
+        }
+    }
+    else
+    {
 
+    }
+
+    loadTitle();
+    sharedPtr<Mix_Music*> music;
+    loadS->loadMusic("data/media/music/test.wav", music);
     return(true);
 }
 
