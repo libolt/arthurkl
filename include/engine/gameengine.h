@@ -2,6 +2,7 @@
 #define _GAMEENGINE_H_
 
 #include "SDL.h"
+#include "SDL_mixer.h"
 
 #include "utilities/typedefs.h"
 
@@ -45,6 +46,8 @@ public:
 
     bool loop();  // loops through game engine logic
 
+    bool playTitleMusic();  // plays title music
+
 private:
 
     // Engines
@@ -61,6 +64,9 @@ private:
     bool soundEInitialized;  // stores whether the sound engine has been initialized
 
     bool titleLoaded;  // stores whether title image has been loaded
+
+    sharedPtr<Mix_Music*> music;
+
 
 };
 

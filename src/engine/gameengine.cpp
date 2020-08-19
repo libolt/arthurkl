@@ -156,8 +156,8 @@ bool gameEngine::initialize()  // initializes the game engine
     }
 
     loadTitle();
-    sharedPtr<Mix_Music*> music;
-    loadS->loadMusic("data/media/music/test.wav", music);
+    loadS->loadMusic("data/media/music/alexander-nakarada-we-three-celtic-kings.mp3", music);
+    playTitleMusic();
     return(true);
 }
 
@@ -191,5 +191,16 @@ bool gameEngine::loop()  // loops through game engine logic
             quitGame = true;
         }
     }
+    return (true);
+}
+
+bool gameEngine::playTitleMusic()
+{
+    if (Mix_PlayMusic(music.get()[0], -1) == -1)
+    {
+        printf("Mix_PlayMusic: %s\n", Mix_GetError());
+        // well, there's no music, but most games don't break without music...
+    }
+
     return (true);
 }
