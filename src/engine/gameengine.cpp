@@ -1,6 +1,7 @@
 #include "engine/gameengine.h"
 #include "engine/graphicsengine.h"
 #include "engine/inputengine.h"
+#include "engine/networkengine.h"
 #include "engine/soundengine.h"
 #include "load/loadsound.h"
 
@@ -12,6 +13,7 @@ gameEngine::gameEngine()  // constructor
     quitGame = false;
     graphicsEInitialized = false;
     inputEInitialized = false;
+    networkEInitialized = false;
     soundEInitialized = false;
     titleLoaded = false;
 }
@@ -35,6 +37,15 @@ sharedPtr<inputEngine> gameEngine::getInputE() const  // retrieves the value of 
 void gameEngine::setInputE(const sharedPtr<inputEngine> &set)  // sets the value of inputE
 {
     inputE = set;
+}
+
+sharedPtr<networkEngine> gameEngine::getNetworkE() const  // retrieves the value of networkE
+{
+    return (networkE);
+}
+void gameEngine::setNetworkE(const sharedPtr<networkEngine> &set)  // sets the value of networkE
+{
+    networkE = set;
 }
 
 sharedPtr<soundEngine> gameEngine::getSoundE() const  // retrieves the value of soundE
@@ -73,6 +84,17 @@ void gameEngine::setInputEInitialized(const bool &set)  // sets the value of inp
     inputEInitialized = set;
 }
 
+bool gameEngine::getNetworkEInitialized() const  // retrieves the value of networkEInitialized
+{
+    return (networkEInitialized);
+}
+void gameEngine::setNetworkEInitialized(const bool &set)  // sets the value of networkEInitialized
+{
+    networkEInitialized = set;
+}
+
+
+
 bool gameEngine::getSoundEInitialized() const  // retrieves the value of soundEInitialized
 {
     return (soundEInitialized);
@@ -98,6 +120,9 @@ bool gameEngine::initialize()  // initializes the game engine
 
    sharedPtr<inputEngine> tempInputE(new inputEngine);
    inputE = tempInputE;
+
+   sharedPtr<networkEngine> tempNetworkE(new networkEngine);
+   networkE = tempNetworkE;
 
    sharedPtr<soundEngine> tempSoundE(new soundEngine);
    soundE = tempSoundE;
@@ -131,6 +156,23 @@ bool gameEngine::initialize()  // initializes the game engine
         else
         {
             inputEInitialized = true;
+        }
+    }
+    else
+    {
+
+    }
+
+    // Initializes Network Engine
+    if (!networkEInitialized)
+    {
+        if( !networkE->initialize() )
+        {
+            std::cout << "Failed to initialize!\n" << std::endl;
+        }
+        else
+        {
+            networkEInitialized = true;
         }
     }
     else

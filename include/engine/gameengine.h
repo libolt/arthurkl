@@ -8,6 +8,7 @@
 
 class graphicsEngine;
 class inputEngine;
+class networkEngine;
 class soundEngine;
 
 class gameEngine
@@ -22,6 +23,9 @@ public:
     sharedPtr<inputEngine> getInputE() const;  // retrieves the value of inputE
     void setInputE(const sharedPtr<inputEngine> &set);  // sets the value of inputE
 
+    sharedPtr<networkEngine> getNetworkE() const;  // retrieves the value of networkE
+    void setNetworkE(const sharedPtr<networkEngine> &set);  // sets the value of networkE
+
     sharedPtr<soundEngine> getSoundE() const;  // retrieves the value of soundE
     void setSoundE(const sharedPtr<soundEngine> &set);  // sets the value of soundE
 
@@ -33,6 +37,9 @@ public:
 
     bool getInputEInitialized() const;  // retrieves the value of inputEInitialized
     void setInputEInitialized(const bool &set);  // sets the value of inputEInitialized
+
+    bool getNetworkEInitialized() const;  // retrieves the value of networkEInitialized
+    void setNetworkEInitialized(const bool &set);  // sets the value of networkInitialized
 
     bool getSoundEInitialized() const;  // retrieves the value of soundEInitialized
     void setSoundEInitialized(const bool &set);  // sets the value of soundEInitialized
@@ -53,6 +60,7 @@ private:
     // Engines
     sharedPtr<graphicsEngine> graphicsE;
     sharedPtr<inputEngine> inputE;
+    sharedPtr<networkEngine> networkE;
     sharedPtr<soundEngine> soundE;
 
     // Event handler
@@ -61,6 +69,7 @@ private:
     bool quitGame; // stores whether or not to quit the game
     bool graphicsEInitialized;  // stores whether the graphics engien has been initialized
     bool inputEInitialized;  // stores whether the input engine has been initialized
+    bool networkEInitialized;  // stores whether the network engine has been initialized
     bool soundEInitialized;  // stores whether the sound engine has been initialized
 
     bool titleLoaded;  // stores whether title image has been loaded
