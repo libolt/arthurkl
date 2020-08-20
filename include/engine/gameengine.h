@@ -4,6 +4,7 @@
 #include "SDL.h"
 #include "SDL_mixer.h"
 
+#include "utilities/enums.h"
 #include "utilities/typedefs.h"
 
 class graphicsEngine;
@@ -47,6 +48,9 @@ public:
     bool getTitleLoaded() const;  // retrieves the value of titleLoaded
     void setTitleLoaded(const bool &set);  // sets the value of titleLoaded
 
+    gameTypes getGameType() const;  // retrieves the value of gameType
+    void setGameType(const gameTypes &set);  // sets the value of gameType
+
     bool initialize();  // initializes the game engine
 
     bool loadTitle();  // loads the title screen
@@ -76,6 +80,7 @@ private:
 
     sharedPtr<Mix_Music*> music;
 
+    gameTypes gameType;  // stores the type of game to be played
 
 };
 

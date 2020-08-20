@@ -1,14 +1,23 @@
-#include <iostream>
+#include "main.h"
+
 #include "engine/gameengine.h"
 #include "engine/graphicsengine.h"
 #include "engine/inputengine.h"
+#include "utilities/commandline.h"
+
+#include <iostream>
 
 using namespace std;
 
-int main( int argc, char* args[] )
+int main( int argc, char* argv[] )
 {
+    sharedPtr<commandLine> cmdLine(new commandLine);
     sharedPtr<gameEngine> gameE(new gameEngine);
 
+    if (argc > 1)
+    {
+        cmdLine->parseCommandLine(argc, argv);
+    }
     //Start up the gameEngine
     if( !gameE->initialize() )
     {

@@ -93,8 +93,6 @@ void gameEngine::setNetworkEInitialized(const bool &set)  // sets the value of n
     networkEInitialized = set;
 }
 
-
-
 bool gameEngine::getSoundEInitialized() const  // retrieves the value of soundEInitialized
 {
     return (soundEInitialized);
@@ -112,6 +110,16 @@ void gameEngine::setTitleLoaded(const bool &set)  // sets the value of titleLoad
 {
     titleLoaded = false;
 }
+
+gameTypes gameEngine::getGameType() const  // retrieves the value of gameType
+{
+    return (gameType);
+}
+void gameEngine::setGameType(const gameTypes &set)  // sets the value of gameType
+{
+    gameType = set;
+}
+
 
 bool gameEngine::initialize()  // initializes the game engine
 {
